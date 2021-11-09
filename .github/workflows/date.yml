@@ -3,13 +3,61 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Dart
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+
+
+  name: Announcement
+description: Submit an announcement
+labels: [Announcement]
+body:
+  - type: textarea
+    attributes:
+      label: Breaking changes
+      placeholder: Short description of the upcoming change
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Target date
+      placeholder: Date of changes propagation start
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: The motivation for the changes
+      placeholder: Description of main reasons for this change
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Possible impact
+      placeholder: Description of who might be impacted by this change
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Virtual environments affected
+      options:
+        - label: Ubuntu 18.04
+        - label: Ubuntu 20.04
+        - label: macOS 10.15
+        - label: macOS 11
+        - label: Windows Server 2016
+        - label: Windows Server 2019
+        - label: Windows Server 2022
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Mitigation ways
+      description: Steps or options for impact mitigation
+    validations:
+      required: true
+
+
+    
+  
+ 
 
 jobs:
   build:
@@ -24,19 +72,19 @@ jobs:
       # - uses: dart-lang/setup-dart@v2
       - uses: dart-lang/setup-dart@9a04ed73cca37bd455e008d7e5092f881fd03
 
-      - name: Install dependencies
-        run: dart pub get
+
+
 
       # Uncomment this step to verify the use of 'dart format' on each commit.
       # - name: Verify formatting
       #   run: dart format --output=none --set-exit-if-changed .
 
       # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Analyze project source
-        run: dart analyze
+
+       
 
       # Your project will need to have tests in test/ and a dependency on
       # package:test for this step to succeed. Note that Flutter projects will
       # want to change this to 'flutter test'.
-      - name: Run tests
-        run: dart test
+      
+
